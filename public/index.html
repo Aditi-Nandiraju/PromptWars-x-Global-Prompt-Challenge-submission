@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nagrik Seva Sahayak - GenAI Civic Portal</title>
+  <!-- Google Fonts Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome Icons for modern aesthetic -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Background Ambient Lights -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo">
+        <i class="fa-solid fa-landmark-dome logo-icon"></i>
+        <div class="logo-text">
+          <h1>नागरिक सेवा</h1>
+          <span>Nagrik Seva Sahayak</span>
+        </div>
+      </div>
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-target="tab-services">
+          <i class="fa-solid fa-magnifying-glass"></i> Service Finder
+        </button>
+        <button class="nav-tab" data-target="tab-report">
+          <i class="fa-solid fa-triangle-exclamation"></i> Report Grievance
+        </button>
+        <button class="nav-tab" data-target="tab-track">
+          <i class="fa-solid fa-list-check"></i> Track & Stats
+        </button>
+        <button class="nav-tab" data-target="tab-simplify">
+          <i class="fa-solid fa-file-contract"></i> Doc Simplifier
+        </button>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" class="btn-icon" title="Toggle Light/Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <span class="badge-live"><i class="fa-solid fa-circle-dot"></i> Live Portal</span>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="app-main">
+      <!-- Left Content Pane (Interactive Tabs) -->
+      <section class="content-pane">
+        
+        <!-- Tab 1: Service Finder -->
+        <div id="tab-services" class="tab-content active">
+          <div class="welcome-banner">
+            <h2>Find Government Services Instantly</h2>
+            <p>Describe your current situation in plain language (e.g., Hindi, Tamil, English). Our AI assistant will automatically match you with the right services, eligibility requirements, and document checklists.</p>
+          </div>
+
+          <div class="search-box-card glass-panel">
+            <label for="service-search-input" class="form-label">Describe your situation, needs, or family details:</label>
+            <div class="search-input-wrapper">
+              <textarea id="service-search-input" placeholder="Example: My grandmother is 65 years old and lives alone, we want to know if there is any government pension scheme for her... or 'मुझे पानी का नया नल लगवाना है क्या कागजात लगेंगे?'" rows="3"></textarea>
+              <button id="btn-find-services" class="btn-primary">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Match Services
+              </button>
+            </div>
+            <div class="search-quick-tags">
+              <span>Quick tags:</span>
+              <button class="quick-tag" data-text="मुझे नया आधार कार्ड बनवाना है और अपना जन्म तिथि ठीक करना है।">आधार कार्ड (Hindi)</button>
+              <button class="quick-tag" data-text="வண்டி ஓட்டுனர் லைசென்ஸ் புதுப்பிக்க வேண்டும், என்னென்ன ஆவணங்கள் தேவை?">ஓட்டுநர் உரிமம் (Tamil)</button>
+              <button class="quick-tag" data-text="I am starting a small grocery shop in my area and need municipal approval.">Trade License (English)</button>
+            </div>
+          </div>
+
+          <!-- Services Results Panel -->
+          <div class="results-header" style="display: none;">
+            <h3>Matched Government Services <span id="recommend-lang-tag" class="lang-tag"></span></h3>
+          </div>
+          <div id="services-results-grid" class="results-grid">
+            <!-- Results rendered here dynamically -->
+          </div>
+        </div>
+
+        <!-- Tab 2: Report Grievance -->
+        <div id="tab-report" class="tab-content">
+          <div class="welcome-banner">
+            <h2>Submit a Public Grievance</h2>
+            <p>Report issues like potholes, streetlights, or water leakage. Our GenAI model auto-triages and routes the issue to the correct department with live status tracking.</p>
+          </div>
+
+          <div class="form-card glass-panel">
+            <form id="grievance-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="grievance-category" class="form-label">Select Issue Category <span class="required">*</span></label>
+                  <select id="grievance-category" required>
+                    <option value="" disabled selected>Select category...</option>
+                    <option value="Roads & potholes">Roads & potholes</option>
+                    <option value="Water supply / leakage">Water supply / leakage</option>
+                    <option value="Electricity outage">Electricity outage</option>
+                    <option value="Garbage / sanitation">Garbage / sanitation</option>
+                    <option value="Streetlights">Streetlights</option>
+                    <option value="Illegal construction / encroachment">Illegal construction / encroachment</option>
+                    <option value="Public safety / nuisance">Public safety / nuisance</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="grievance-location" class="form-label">Exact Location / Landmark <span class="required">*</span></label>
+                  <input type="text" id="grievance-location" placeholder="e.g. Near metro station gate 2, Sector 5" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="grievance-description" class="form-label">Describe the issue in detail <span class="required">*</span></label>
+                <textarea id="grievance-description" placeholder="Provide as much details as possible so the AI can automatically determine urgency and routing..." rows="4" required></textarea>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="citizen-name" class="form-label">Your Name</label>
+                  <input type="text" id="citizen-name" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                  <label for="citizen-contact" class="form-label">Contact Mobile</label>
+                  <input type="tel" id="citizen-contact" placeholder="98765 43210">
+                </div>
+              </div>
+
+              <button type="submit" class="btn-primary form-submit-btn">
+                <i class="fa-solid fa-paper-plane"></i> Submit Complaint & Triage
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Tab 3: Track Issues & Transparency Stats -->
+        <div id="tab-track" class="tab-content">
+          <div class="welcome-banner">
+            <h2>Civic Transparency Dashboard</h2>
+            <p>Monitor resolved and pending complaints. Below you can check live municipal stats or lookup your reported complaint status using its Tracking ID.</p>
+          </div>
+
+          <!-- Public Transparency Stats Panel -->
+          <div class="stats-grid">
+            <div class="stat-card glass-panel">
+              <div class="stat-icon"><i class="fa-solid fa-folder-open text-primary"></i></div>
+              <div class="stat-info">
+                <h4 id="stat-total">0</h4>
+                <p>Total Complaints</p>
+              </div>
+            </div>
+            <div class="stat-card glass-panel">
+              <div class="stat-icon"><i class="fa-solid fa-spinner text-warning spin-icon"></i></div>
+              <div class="stat-info">
+                <h4 id="stat-active">0</h4>
+                <p>Active Issues</p>
+              </div>
+            </div>
+            <div class="stat-card glass-panel">
+              <div class="stat-icon"><i class="fa-solid fa-circle-check text-success"></i></div>
+              <div class="stat-info">
+                <h4 id="stat-resolved">0</h4>
+                <p>Resolved</p>
+              </div>
+            </div>
+            <div class="stat-card glass-panel">
+              <div class="stat-icon"><i class="fa-solid fa-stopwatch text-info"></i></div>
+              <div class="stat-info">
+                <h4 id="stat-time">0.0 days</h4>
+                <p>Avg. Resolution Time</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lookup Grievance and Active Grievances list -->
+          <div class="track-split">
+            <!-- Left Side: Interactive Search/Lookup -->
+            <div class="lookup-card glass-panel">
+              <h3>Lookup Grievance Status</h3>
+              <div class="lookup-input-wrapper">
+                <input type="text" id="lookup-id-input" placeholder="Enter Tracking ID (e.g. GRI-123456)">
+                <button id="btn-lookup" class="btn-secondary">Search</button>
+              </div>
+              <div id="lookup-result" class="lookup-result-area">
+                <p class="placeholder-text">Enter ID to view detailed history and control mock resolution stages.</p>
+              </div>
+            </div>
+
+            <!-- Right Side: Recent Grievances -->
+            <div class="complaints-list-card glass-panel">
+              <h3>Recent Public Grievances</h3>
+              <div id="recent-complaints-list" class="complaints-scroll-list">
+                <!-- Grievances list rendered here -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Document Simplifier -->
+        <div id="tab-simplify" class="tab-content">
+          <div class="welcome-banner">
+            <h2>Simplify Government Notices</h2>
+            <p>Paste complex government rules, administrative circulars, or circular forms. The AI assistant will translate the bureaucratic jargon into plain, citizen-friendly language and draft a clean action list.</p>
+          </div>
+
+          <div class="simplify-card glass-panel">
+            <div class="form-group">
+              <label for="document-text-input" class="form-label">Paste official circular, notification, or form terms here:</label>
+              <textarea id="document-text-input" placeholder="Paste circular notice text..." rows="8"></textarea>
+            </div>
+            <div class="search-quick-tags">
+              <span>Quick templates:</span>
+              <button class="quick-doc" data-text="अधिसूचना संख्या 42-बी: आयकर अधिनियम की धारा 139एए के तहत सभी करदाताओं को सलाह दी जाती है कि वे अपने स्थायी खाता संख्या (PAN) को आधार संख्या के साथ संरेखित करें। असफल होने की स्थिति में, उक्त पैन 31 दिसंबर से निष्क्रिय हो जाएगा तथा वित्तीय विसंगतियां उत्पन्न हो सकती हैं।">पैन-आधार अधिसूचना (Hindi)</button>
+              <button class="quick-doc" data-text="Public Notice: Municipal authority hereby mandates all trade establishments operating in Zone-A commercial markets to procure a valid Trade License within 30 days of this circular under section 45 of Municipal Act. Failure to do so will attract severe penalties and sealing of business operations.">Trade License Notice (English)</button>
+            </div>
+            <button id="btn-simplify" class="btn-primary form-submit-btn">
+              <i class="fa-solid fa-file-prescription"></i> Simplify & Extract Checklist
+            </button>
+          </div>
+
+          <div id="simplify-result" class="simplify-result-panel glass-panel" style="display: none;">
+            <h3>Simplified Summary <span id="simplify-lang-tag" class="lang-tag"></span></h3>
+            <p id="simplified-explanation" class="explanation-text"></p>
+            
+            <h4 class="mt-4"><i class="fa-solid fa-circle-check text-primary"></i> Action Items checklist:</h4>
+            <ul id="simplified-actions" class="checklist-ul">
+              <!-- Checklist render -->
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Right Content Pane (AI Companion) -->
+      <section class="companion-pane glass-panel">
+        <div class="companion-header">
+          <div class="companion-avatar">
+            <i class="fa-solid fa-robot"></i>
+            <span class="active-pulse"></span>
+          </div>
+          <div class="companion-info">
+            <h3>Nagrik Seva Sahayak</h3>
+            <span id="chat-lang-tag" class="lang-tag-sub">AI Companion</span>
+          </div>
+          <button id="chat-clear" class="btn-icon-sub" title="Clear Chat History"><i class="fa-solid fa-trash-can"></i></button>
+        </div>
+
+        <div id="chat-messages" class="chat-messages-container">
+          <!-- Welcome message -->
+          <div class="chat-msg assistant">
+            <div class="bubble">
+              <p>Namaste! I am your AI Companion. I can answer questions about government services, checklist requirements, or track your complaints in multiple languages. How may I assist you today?</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selected Service Context Banner -->
+        <div id="chat-service-context" class="chat-context-banner" style="display: none;">
+          <div class="context-desc">
+            <i class="fa-solid fa-bookmark"></i> Talking about: <strong id="chat-context-name">None</strong>
+          </div>
+          <button id="btn-clear-chat-context" class="context-close">&times;</button>
+        </div>
+
+        <div class="chat-input-area">
+          <input type="text" id="chat-input" placeholder="Type your query here...">
+          <button id="btn-chat-send" class="btn-primary-circle">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

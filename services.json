@@ -1,0 +1,257 @@
+[
+  {
+    "id": "aadhaar-enrollment",
+    "name": "Aadhaar Card (Enrollment & Update)",
+    "category": "identity",
+    "short_description": "Get or update your 12-digit unique national identity number containing your biometric and demographic details.",
+    "required_documents": [
+      "Proof of Address (e.g., Utility Bill, Passport)",
+      "Proof of Date of Birth (e.g., Birth Certificate, SSLC Book)",
+      "Recent Passport-size Photograph"
+    ],
+    "eligibility": "Residents of India (living in India for 182 days or more in the last 12 months).",
+    "typical_processing_time": "15-30 days"
+  },
+  {
+    "id": "pan-card",
+    "name": "PAN Card (New & Correction)",
+    "category": "identity",
+    "short_description": "Apply for a Permanent Account Number for financial, banking, and income tax operations.",
+    "required_documents": [
+      "Aadhaar Card (identity proof)",
+      "Recent Passport-size Photograph",
+      "Address Proof (e.g., Bank Statement, Passport)"
+    ],
+    "eligibility": "All Indian citizens, business entities, and tax-paying entities.",
+    "typical_processing_time": "10-15 days"
+  },
+  {
+    "id": "birth-certificate",
+    "name": "Birth Certificate",
+    "category": "identity",
+    "short_description": "Register and obtain official governmental certification of a child's birth details.",
+    "required_documents": [
+      "Hospital Discharge Slip or Signed Affidavit",
+      "Identity Proof of Parents (Aadhaar or Voter ID)"
+    ],
+    "eligibility": "Parents or legal guardians of a newborn child born within municipal limits.",
+    "typical_processing_time": "7-10 days"
+  },
+  {
+    "id": "death-certificate",
+    "name": "Death Certificate",
+    "category": "identity",
+    "short_description": "Obtain official certification of the death of a citizen for legal and financial settlements.",
+    "required_documents": [
+      "Hospital Medical Death Certificate or Cremation Slip",
+      "Identity Proof of the Deceased (e.g., Aadhaar Card)"
+    ],
+    "eligibility": "Immediate family members or close relatives of the deceased individual.",
+    "typical_processing_time": "5-7 days"
+  },
+  {
+    "id": "marriage-certificate",
+    "name": "Marriage Certificate & Registration",
+    "category": "identity",
+    "short_description": "Officially register and obtain proof of a marriage under the Special or Hindu Marriage Act.",
+    "required_documents": [
+      "Age Proof of Bride (18+) and Groom (21+)",
+      "Address Proof of Bride and Groom",
+      "Marriage Invitation Card & Marriage Photographs",
+      "Identity Proof of 3 Witnesses"
+    ],
+    "eligibility": "Legally married couples (Groom aged 21+ and Bride aged 18+).",
+    "typical_processing_time": "15-30 days"
+  },
+  {
+    "id": "voter-id",
+    "name": "Voter ID Card (EPIC)",
+    "category": "identity",
+    "short_description": "Apply for a voter identification card to exercise your franchise in national, state, and local elections.",
+    "required_documents": [
+      "Age Proof (e.g., 10th Marksheet, Birth Certificate)",
+      "Address Proof (e.g., Gas Bill, Rent Agreement)",
+      "Recent Passport-size Photograph"
+    ],
+    "eligibility": "Indian citizens who are 18 years of age or older on the qualifying date.",
+    "typical_processing_time": "30-45 days"
+  },
+  {
+    "id": "income-certificate",
+    "name": "Income Certificate",
+    "category": "welfare",
+    "short_description": "Get certified proof of your annual household income to apply for scholarships or welfare schemes.",
+    "required_documents": [
+      "Salary Slip, IT Return, or signed Income Self-Declaration Affidavit",
+      "Address Proof (e.g., Ration Card, Aadhaar Card)"
+    ],
+    "eligibility": "Residents who need to prove their family income level for educational or welfare concessions.",
+    "typical_processing_time": "10-15 days"
+  },
+  {
+    "id": "caste-certificate",
+    "name": "Caste Certificate (SC/ST/OBC)",
+    "category": "welfare",
+    "short_description": "Access reservation benefits and scholarships by proving your social caste or tribe classification.",
+    "required_documents": [
+      "Caste proof of family members (e.g., father's caste certificate)",
+      "Address Proof & School Leaving Certificate"
+    ],
+    "eligibility": "Citizens belonging to Scheduled Castes, Scheduled Tribes, or Other Backward Classes.",
+    "typical_processing_time": "15-20 days"
+  },
+  {
+    "id": "domicile-certificate",
+    "name": "Domicile / Residence Certificate",
+    "category": "welfare",
+    "short_description": "Obtain official certification of your permanent state residence for jobs, education, and state quotas.",
+    "required_documents": [
+      "Utility Bill or Rent Agreement",
+      "Ration Card or Aadhaar Card",
+      "Proof of continuous residence (e.g., School certificates, land records)"
+    ],
+    "eligibility": "Citizens residing continuously in the specific state or union territory for a set number of years (usually 5-15 years).",
+    "typical_processing_time": "10-15 days"
+  },
+  {
+    "id": "ration-card",
+    "name": "Ration Card (New & Update)",
+    "category": "welfare",
+    "short_description": "Apply for or modify your ration card to receive subsidized foodgrains and grains under state schemes.",
+    "required_documents": [
+      "Family Details and passport-size photographs of members",
+      "Income Proof of the family",
+      "Address Proof (e.g., Electricity Bill, Gas Book)"
+    ],
+    "eligibility": "Head of the family (prioritizing the oldest female member) residing in the state.",
+    "typical_processing_time": "20-30 days"
+  },
+  {
+    "id": "disability-certificate",
+    "name": "Disability Certificate (UDID)",
+    "category": "welfare",
+    "short_description": "Apply for a Unique Disability ID (UDID) to access government reservations, subsidies, and assistance.",
+    "required_documents": [
+      "Medical Assessment Report from a Government Hospital",
+      "Passport-size Photograph",
+      "Identity Proof (Aadhaar or Voter ID)"
+    ],
+    "eligibility": "Persons with a diagnosed, permanent disability of 40% or more.",
+    "typical_processing_time": "30 days"
+  },
+  {
+    "id": "pension-schemes",
+    "name": "Old-Age / Widow / Disability Pension Scheme",
+    "category": "welfare",
+    "short_description": "Apply for monthly financial pension support under government social security welfare programs.",
+    "required_documents": [
+      "Age Proof or Relationship/Death Certificate of Spouse (for widow pension)",
+      "Income Certificate showing low-income status",
+      "Copy of active Bank Passbook"
+    ],
+    "eligibility": "Senior citizens (60+), widows, or disabled individuals with family income below the poverty threshold.",
+    "typical_processing_time": "45-60 days"
+  },
+  {
+    "id": "water-connection",
+    "name": "New Water Connection & Complaint",
+    "category": "utilities",
+    "short_description": "Apply for a fresh municipal water pipeline connection or report leaks and pressure issues.",
+    "required_documents": [
+      "Property Ownership Proof (Sale Deed or Tax Receipt)",
+      "Identity Proof of applicant"
+    ],
+    "eligibility": "Owners or legally authorized tenants of a property located within the municipal water supply grid.",
+    "typical_processing_time": "15-20 days"
+  },
+  {
+    "id": "electricity-connection",
+    "name": "New Electricity Connection & Complaint",
+    "category": "utilities",
+    "short_description": "Request a new power connection for domestic/commercial property, or file outage and billing grievances.",
+    "required_documents": [
+      "Property Ownership Proof or Lease/NOC",
+      "Identity Proof of applicant"
+    ],
+    "eligibility": "Property owners or lawful occupants of the premises requesting service.",
+    "typical_processing_time": "7-10 days"
+  },
+  {
+    "id": "property-tax",
+    "name": "Property Tax Payment & Assessment",
+    "category": "utilities",
+    "short_description": "Access property assessment documents, calculate your property tax liabilities, and pay bills online.",
+    "required_documents": [
+      "Property Registration Documents",
+      "Previous Year's Property Tax Receipt"
+    ],
+    "eligibility": "Owners of land and residential or commercial properties within the municipal limits.",
+    "typical_processing_time": "Immediate (Online)"
+  },
+  {
+    "id": "trade-license",
+    "name": "Trade License",
+    "category": "utilities",
+    "short_description": "Apply for authorization from the local municipality to run a trade, shop, or commercial business.",
+    "required_documents": [
+      "Shop/Establishment Address Proof (Rent deed or tax bill)",
+      "Identity Proof of the applicant",
+      "No Objection Certificate (NOC) from neighbors or Fire Department if applicable"
+    ],
+    "eligibility": "Business owners starting commercial operations in approved municipal zones.",
+    "typical_processing_time": "15-30 days"
+  },
+  {
+    "id": "driving-license",
+    "name": "Driving License (New & Renewal)",
+    "category": "transport",
+    "short_description": "Apply for a standard vehicle driving permit or renew your expired driving license at the RTO.",
+    "required_documents": [
+      "Age Proof & Address Proof",
+      "Medical Certificate (Form 1A, required for commercial or 50+ age)",
+      "Active Learner's License"
+    ],
+    "eligibility": "Indian citizens aged 18 or above (16 for gearless scooters) holding a valid learner's license.",
+    "typical_processing_time": "20-30 days"
+  },
+  {
+    "id": "vehicle-registration",
+    "name": "Vehicle Registration Certificate (RC)",
+    "category": "transport",
+    "short_description": "Register a new motor vehicle to obtain a Registration Certificate (RC) and license plate numbers.",
+    "required_documents": [
+      "Sale Certificate (Form 21) from the automobile dealer",
+      "Vehicle Insurance Copy",
+      "Pollution Under Control (PUC) Certificate",
+      "Identity Proof of Owner"
+    ],
+    "eligibility": "Owner of a motor vehicle purchased through an authorized regional dealership.",
+    "typical_processing_time": "15-20 days"
+  },
+  {
+    "id": "ayushman-bharat",
+    "name": "Ayushman Bharat / Health Insurance Scheme",
+    "category": "health/education",
+    "short_description": "Enroll in the national health protection scheme offering free cashless health insurance cover up to Rs. 5 Lakhs.",
+    "required_documents": [
+      "Income Certificate or Ration Card",
+      "Aadhaar Card",
+      "Family Listing / SECC letter"
+    ],
+    "eligibility": "Identified low-income and socio-economically marginalized families under the SECC registry.",
+    "typical_processing_time": "7-15 days"
+  },
+  {
+    "id": "student-scholarship",
+    "name": "Student Scholarship Schemes",
+    "category": "health/education",
+    "short_description": "Apply for state or national educational scholarships for financial aid in schools, colleges, or universities.",
+    "required_documents": [
+      "Income Certificate & Caste Certificate (if applicable)",
+      "Academic Marksheets & Fee Receipt",
+      "Bank Passbook Details (mapped to Aadhaar)"
+    ],
+    "eligibility": "Regular students enrolled in government-recognized institutions meeting specific category or low-income criteria.",
+    "typical_processing_time": "30-60 days"
+  }
+]
